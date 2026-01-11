@@ -1,0 +1,68 @@
+# ============================================================================
+# .gitignore for Fitness Studio Application
+# ============================================================================
+
+# PHP
+vendor/
+composer.phar
+composer.lock
+
+# IDE & Editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+Thumbs.db
+
+# Configuration files with sensitive data
+app/Core/config.php.local
+*.env
+*.env.local
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Upload directories (user uploaded files)
+public/uploads/*
+!public/uploads/.gitkeep
+
+# Cache directories
+cache/
+tmp/
+temp/
+
+# PHPUnit
+.phpunit.result.cache
+phpunit.xml
+
+# Node modules (if using any frontend tools)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Build directories
+dist/
+build/
+
+# ============================================================================
+# END .gitignore
+# ============================================================================
