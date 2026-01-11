@@ -8,6 +8,7 @@
         </button>
       </div>
       <form id="signupForm" method="POST" action="<?php echo defined('Config::BASE_URL') ? Config::BASE_URL : '/fitnessapp/public/'; ?>user/register">
+        <?php echo CSRF::getTokenInput(); ?>
 
         <div class="modal-body">
             <div id="signupMessage" class="mb-3" style="display: none;"></div>

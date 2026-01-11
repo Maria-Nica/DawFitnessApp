@@ -5,6 +5,7 @@ require_once __DIR__ . '/../Models/RecipeModel.php';
 require_once __DIR__ . '/../Models/UserModel.php';
 require_once __DIR__ . '/../Core/Exceptions/ValidationException.php';
 require_once __DIR__ . '/../Core/Exceptions/DatabaseException.php';
+require_once __DIR__ . '/../Core/CSRF.php';
 
 class RecipeController {
 
@@ -79,6 +80,12 @@ class RecipeController {
 
         // Validate POST data
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // CSRF validation
+            if (!CSRF::validateRequest()) {
+                $_SESSION['error_message'] = 'CSRF validation failed.';
+                header('Location: ' . (defined('Config::BASE_URL') ? Config::BASE_URL : '/fitnessapp/public/') . 'retete');
+                exit;
+            }
             $title = trim($_POST['title'] ?? '');
             $description = trim($_POST['description'] ?? '');
             $steps = trim($_POST['steps'] ?? '');
@@ -172,6 +179,12 @@ class RecipeController {
 
         // Validate POST data
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // CSRF validation
+            if (!CSRF::validateRequest()) {
+                $_SESSION['error_message'] = 'CSRF validation failed.';
+                header('Location: ' . (defined('Config::BASE_URL') ? Config::BASE_URL : '/fitnessapp/public/') . 'retete');
+                exit;
+            }
             $title = trim($_POST['title'] ?? '');
             $description = trim($_POST['description'] ?? '');
             $steps = trim($_POST['steps'] ?? '');

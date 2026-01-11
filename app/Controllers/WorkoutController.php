@@ -2,6 +2,7 @@
 
 require_once __DIR__ . '/../Models/WorkoutModel.php';
 require_once __DIR__ . '/../Models/UserModel.php';
+require_once __DIR__ . '/../Core/CSRF.php';
 
 class WorkoutController {
     private $workoutModel;
@@ -52,6 +53,13 @@ class WorkoutController {
             exit;
         }
         
+        // CSRF validation
+        if (!CSRF::validateRequest()) {
+            $_SESSION['error_message'] = 'CSRF validation failed.';
+            header('Location: ' . (defined('Config::BASE_URL') ? Config::BASE_URL : '/fitnessapp/public/') . 'antrenamente');
+            exit;
+        }
+
         $data = [
             'user_id' => $_SESSION['user_id'],
             'workout_type_id' => $_POST['workout_type_id'],
@@ -116,6 +124,13 @@ class WorkoutController {
             exit;
         }
         
+        // CSRF validation
+        if (!CSRF::validateRequest()) {
+            $_SESSION['error_message'] = 'CSRF validation failed.';
+            header('Location: ' . (defined('Config::BASE_URL') ? Config::BASE_URL : '/fitnessapp/public/') . 'antrenamente');
+            exit;
+        }
+
         $data = [
             'workout_type_id' => $_POST['workout_type_id'],
             'description' => $_POST['description'] ?? '',

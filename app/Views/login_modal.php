@@ -8,6 +8,7 @@
         </button>
       </div>
       <form id="loginForm" method="POST" action="<?php echo defined('Config::BASE_URL') ? Config::BASE_URL : '/fitnessapp/public/'; ?>user/login">
+        <?php echo CSRF::getTokenInput(); ?>
         <div class="modal-body">
           <div class="form-group">
             <label for="loginEmailInput">Email</label>

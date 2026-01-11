@@ -9,6 +9,7 @@ define('ROOT_PATH', dirname(__DIR__));
 
 // 2. incarca Routerul: Calea ar trebui sa fie ROOT_PATH/app/Core/Router.php
 require_once ROOT_PATH . '/app/Core/Router.php'; // <--- VERIFICa CALEA AICI!
+require_once ROOT_PATH . '/app/Core/CSRF.php';
 
 // =========================================================================
 // 3. DEFINIREA RUTELOR APLICAtIEI

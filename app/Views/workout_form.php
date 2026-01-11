@@ -32,9 +32,10 @@
 
     <!-- ***** Workout Form Section Start ***** -->
     <div class="container" style="width: 100%; max-width: 1000px; padding: 20px;">
-        <form action="<?php echo isset($workout) ? (defined('Config::BASE_URL') ? Config::BASE_URL : '/fitnessapp/public/') . 'antrenamente/update/' . $workout['workout_id'] : (defined('Config::BASE_URL') ? Config::BASE_URL : '/fitnessapp/public/') . 'antrenamente/store'; ?>" 
+          <form action="<?php echo isset($workout) ? (defined('Config::BASE_URL') ? Config::BASE_URL : '/fitnessapp/public/') . 'antrenamente/update/' . $workout['workout_id'] : (defined('Config::BASE_URL') ? Config::BASE_URL : '/fitnessapp/public/') . 'antrenamente/store'; ?>" 
               method="POST" 
               style="background: linear-gradient(145deg, #232d39 0%, #1a242f 100%); padding: 50px; border-radius: 15px; border: 2px solid #ed563b; box-shadow: 0 10px 30px rgba(237, 86, 59, 0.3);">
+            <?php echo CSRF::getTokenInput(); ?>
             
             <h2 style="color: #ed563b; text-align: center; margin-bottom: 40px; font-size: 28px; font-weight: bold;">
                 <?php echo isset($workout) ? 'Editare Antrenament' : 'Adaugare Antrenament'; ?>

@@ -7,6 +7,7 @@ require_once __DIR__ . '/../Models/UserModel.php';
 require_once __DIR__ . '/../Core/config.php';
 require_once __DIR__ . '/../Core/Exceptions/ValidationException.php';
 require_once __DIR__ . '/../Core/Exceptions/DatabaseException.php';
+require_once __DIR__ . '/../Core/CSRF.php';
 
 class UserController {
 
@@ -31,6 +32,13 @@ class UserController {
 
         if ($_SERVER["REQUEST_METHOD"] !== "POST") {
             $_SESSION['error'] = 'Invalid access method.';
+            $this->redirectToHome();
+            return;
+        }
+
+        // CSRF validation
+        if (!CSRF::validateRequest()) {
+            $_SESSION['error'] = 'CSRF validation failed.';
             $this->redirectToHome();
             return;
         }
@@ -72,6 +80,13 @@ class UserController {
 
         if ($_SERVER["REQUEST_METHOD"] !== "POST") {
             $_SESSION['error'] = 'Invalid access method.';
+            $this->redirectToHome();
+            return;
+        }
+
+        // CSRF validation
+        if (!CSRF::validateRequest()) {
+            $_SESSION['error'] = 'CSRF validation failed.';
             $this->redirectToHome();
             return;
         }
