@@ -10,6 +10,17 @@ on:
 jobs:
   phpunit:
     runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: fitnessapp
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping --silent" --health-interval=10s --health-timeout=5s --health-retries=5
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -18,14 +29,32 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.0'
+          extensions: mysqli
 
-      - name: Get composer cache
-        uses: actions/cache@v4
-        with:
-          path: ~/.composer/cache
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-composer-
+      - name: Wait for MySQL
+        run: |
+          sudo apt-get update -y && sudo apt-get install -y default-mysql-client
+          for i in {1..30}; do
+            mysqladmin ping -h 127.0.0.1 -uroot -proot &>/dev/null && break || sleep 1
+          done
+
+      - name: Inject test DB config
+        run: |
+          cat > app/Core/config.php <<'PHP'
+<?php
+class Config {
+    public const DB_SERVER = '127.0.0.1';
+    public const DB_USERNAME = 'root';
+    public const DB_PASSWORD = 'root';
+    public const DB_NAME = 'fitnessapp';
+    public const DEFAULT_ROLE_ID = 1;
+    public const APP_NAME = 'Fitness Studio App';
+    public const BASE_URL = 'http://localhost/fitnessapp/public/';
+}
+PHP
+
+      - name: Import database schema
+        run: mysql -h 127.0.0.1 -uroot -proot fitnessapp < database/fitnessapp_structure.sql
 
       - name: Install dependencies
         run: composer install --no-progress --prefer-dist
