@@ -1,0 +1,17 @@
+# /fitnessapp/public/.htaccess
+
+<IfModule mod_rewrite.c>
+    # Activează motorul de rescriere
+    RewriteEngine On
+
+    # ATENȚIE: Aici trebuie să specifici calea relativă de la rădăcina serverului
+    # Punctul de start al Front Controller-ului (index.php) este folderul public
+    RewriteBase /fitnessapp/public/
+
+    # 1. Dacă fișierul sau directorul există (ex: CSS, imagini), folosește-l direct
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # 2. Altfel, trimite orice altă cerere către index.php
+    RewriteRule ^ index.php [QSA,L]
+</IfModule>

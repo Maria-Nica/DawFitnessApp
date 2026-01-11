@@ -1,0 +1,305 @@
+/* ============================================================================
+   BASE.CSS - Fitness Studio Application
+   ============================================================================
+   Author: M.N.C. SoftwareStudio
+   Description: Custom base styles and utilities for Fitness Studio app
+   Purpose: Demonstrates custom CSS skills beyond templates
+   ============================================================================ */
+
+/* ----------------------------------------------------------------------------
+   CSS CUSTOM PROPERTIES (Variables) - Brand Colors & Spacing
+   ---------------------------------------------------------------------------- */
+:root {
+    /* Primary Brand Colors */
+    --fitness-primary: #ed563b;
+    --fitness-primary-hover: #f9735b;
+    --fitness-dark: #232d39;
+    --fitness-darker: #1a242f;
+
+    /* Accent Colors */
+    --fitness-success: #28a745;
+    --fitness-warning: #ffc107;
+    --fitness-danger: #dc3545;
+    --fitness-info: #17a2b8;
+
+    /* Neutral Colors */
+    --fitness-light: #f8f9fa;
+    --fitness-gray: #7a7a7a;
+    --fitness-white: #ffffff;
+
+    /* Spacing System */
+    --spacing-xs: 8px;
+    --spacing-sm: 16px;
+    --spacing-md: 24px;
+    --spacing-lg: 32px;
+    --spacing-xl: 48px;
+
+    /* Typography */
+    --font-primary: 'Poppins', sans-serif;
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-bold: 700;
+
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 15px;
+
+    /* Shadows */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 8px rgba(237, 86, 59, 0.15);
+    --shadow-lg: 0 8px 16px rgba(237, 86, 59, 0.2);
+
+    /* Transitions */
+    --transition-fast: 0.2s ease-in-out;
+    --transition-normal: 0.3s ease-in-out;
+    --transition-slow: 0.5s ease-in-out;
+}
+
+/* ----------------------------------------------------------------------------
+   GLOBAL RESETS & BASE STYLES
+   ---------------------------------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-primary);
+    font-weight: var(--font-weight-regular);
+    line-height: 1.6;
+    color: var(--fitness-gray);
+    background-color: var(--fitness-white);
+    overflow-x: hidden;
+}
+
+/* ----------------------------------------------------------------------------
+   UTILITY CLASSES - Spacing
+   ---------------------------------------------------------------------------- */
+.mt-custom-xs {
+    margin-top: var(--spacing-xs) !important;
+}
+
+.mt-custom-sm {
+    margin-top: var(--spacing-sm) !important;
+}
+
+.mt-custom-md {
+    margin-top: var(--spacing-md) !important;
+}
+
+.mt-custom-lg {
+    margin-top: var(--spacing-lg) !important;
+}
+
+.mt-custom-xl {
+    margin-top: var(--spacing-xl) !important;
+}
+
+.mb-custom-xs {
+    margin-bottom: var(--spacing-xs) !important;
+}
+
+.mb-custom-sm {
+    margin-bottom: var(--spacing-sm) !important;
+}
+
+.mb-custom-md {
+    margin-bottom: var(--spacing-md) !important;
+}
+
+.mb-custom-lg {
+    margin-bottom: var(--spacing-lg) !important;
+}
+
+.mb-custom-xl {
+    margin-bottom: var(--spacing-xl) !important;
+}
+
+.p-custom-sm {
+    padding: var(--spacing-sm) !important;
+}
+
+.p-custom-md {
+    padding: var(--spacing-md) !important;
+}
+
+.p-custom-lg {
+    padding: var(--spacing-lg) !important;
+}
+
+/* ----------------------------------------------------------------------------
+   UTILITY CLASSES - Colors & Typography
+   ---------------------------------------------------------------------------- */
+.text-fitness-primary {
+    color: var(--fitness-primary) !important;
+}
+
+.text-fitness-dark {
+    color: var(--fitness-dark) !important;
+}
+
+.bg-fitness-primary {
+    background-color: var(--fitness-primary) !important;
+}
+
+.bg-fitness-dark {
+    background-color: var(--fitness-dark) !important;
+}
+
+.bg-fitness-gradient {
+    background: linear-gradient(145deg, var(--fitness-darker) 0%, var(--fitness-dark) 100%) !important;
+}
+
+.font-weight-custom-bold {
+    font-weight: var(--font-weight-bold) !important;
+}
+
+.text-uppercase-custom {
+    text-transform: uppercase !important;
+    letter-spacing: 1px;
+}
+
+/* ----------------------------------------------------------------------------
+   CONTAINER CUSTOM - Max Width Layouts
+   ---------------------------------------------------------------------------- */
+.container-custom-narrow {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.container-custom-wide {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+}
+
+/* ----------------------------------------------------------------------------
+   FLEXBOX UTILITIES
+   ---------------------------------------------------------------------------- */
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+/* ----------------------------------------------------------------------------
+   GRID UTILITIES
+   ---------------------------------------------------------------------------- */
+.grid-custom-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+}
+
+.grid-custom-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+}
+
+/* ----------------------------------------------------------------------------
+   RESPONSIVE BREAKPOINTS - Mobile First
+   ---------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+
+    .grid-custom-2,
+    .grid-custom-3 {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+
+    .container-custom-narrow,
+    .container-custom-wide {
+        padding: 0 var(--spacing-sm);
+    }
+
+    html {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 576px) {
+    :root {
+        --spacing-md: 16px;
+        --spacing-lg: 24px;
+        --spacing-xl: 32px;
+    }
+}
+
+/* ----------------------------------------------------------------------------
+   ANIMATION UTILITIES
+   ---------------------------------------------------------------------------- */
+.transition-all {
+    transition: all var(--transition-normal);
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+    transition: transform var(--transition-fast);
+}
+
+.hover-shadow:hover {
+    box-shadow: var(--shadow-lg);
+    transition: box-shadow var(--transition-normal);
+}
+
+/* ----------------------------------------------------------------------------
+   ACCESSIBILITY IMPROVEMENTS
+   ---------------------------------------------------------------------------- */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+.focus-visible:focus {
+    outline: 2px solid var(--fitness-primary);
+    outline-offset: 2px;
+}
+
+/* ----------------------------------------------------------------------------
+   PRINT STYLES
+   ---------------------------------------------------------------------------- */
+@media print {
+    body {
+        background-color: var(--fitness-white);
+        color: #000000;
+    }
+
+    .no-print {
+        display: none !important;
+    }
+}
+
+/* ============================================================================
+   END OF BASE.CSS
+   ============================================================================ */

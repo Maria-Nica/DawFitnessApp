@@ -1,0 +1,392 @@
+/* ============================================================================
+   COMPONENTS.CSS - Fitness Studio Application
+   ============================================================================
+   Author: M.N.C. SoftwareStudio
+   Description: Custom component styles specific to Fitness Studio features
+   Purpose: Reusable components for workouts, recipes, and fitness tracking
+   ============================================================================ */
+
+/* ----------------------------------------------------------------------------
+   WORKOUT CARD COMPONENT - For displaying workout sessions
+   ---------------------------------------------------------------------------- */
+.workout-card-custom {
+    background: linear-gradient(145deg, #232d39 0%, #1a242f 100%);
+    border-radius: 15px;
+    padding: 25px;
+    border: 2px solid #ed563b;
+    box-shadow: 0 5px 15px rgba(237, 86, 59, 0.2);
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 20px;
+}
+
+.workout-card-custom:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(237, 86, 59, 0.3);
+    border-color: #f9735b;
+}
+
+.workout-card-custom .workout-title {
+    color: #ed563b;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.workout-card-custom .workout-description {
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.workout-card-custom .workout-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+/* ----------------------------------------------------------------------------
+   RECIPE CARD COMPONENT - For displaying recipes
+   ---------------------------------------------------------------------------- */
+.recipe-card-custom {
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.recipe-card-custom:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(237, 86, 59, 0.25);
+}
+
+.recipe-card-custom .recipe-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background: linear-gradient(135deg, #ed563b 0%, #f9735b 100%);
+}
+
+.recipe-card-custom .recipe-content {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.recipe-card-custom .recipe-title {
+    color: #ed563b;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    text-transform: capitalize;
+}
+
+.recipe-card-custom .recipe-description {
+    color: #7a7a7a;
+    font-size: 14px;
+    line-height: 1.5;
+    flex-grow: 1;
+    margin-bottom: 15px;
+}
+
+/* ----------------------------------------------------------------------------
+   STATS BADGE - For displaying calories, duration, intensity
+   ---------------------------------------------------------------------------- */
+.stats-badge-custom {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background-color: rgba(237, 86, 59, 0.1);
+    color: #ed563b;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid rgba(237, 86, 59, 0.3);
+}
+
+.stats-badge-custom i {
+    font-size: 14px;
+}
+
+.stats-badge-success {
+    background-color: rgba(40, 167, 69, 0.1);
+    color: #28a745;
+    border-color: rgba(40, 167, 69, 0.3);
+}
+
+.stats-badge-info {
+    background-color: rgba(23, 162, 184, 0.1);
+    color: #17a2b8;
+    border-color: rgba(23, 162, 184, 0.3);
+}
+
+.stats-badge-warning {
+    background-color: rgba(255, 193, 7, 0.1);
+    color: #ffc107;
+    border-color: rgba(255, 193, 7, 0.3);
+}
+
+/* ----------------------------------------------------------------------------
+   CUSTOM BUTTONS - Fitness App Specific
+   ---------------------------------------------------------------------------- */
+.btn-fitness-primary {
+    background: linear-gradient(135deg, #ed563b 0%, #f9735b 100%);
+    color: #ffffff;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(237, 86, 59, 0.3);
+}
+
+.btn-fitness-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(237, 86, 59, 0.4);
+    background: linear-gradient(135deg, #f9735b 0%, #ed563b 100%);
+}
+
+.btn-fitness-secondary {
+    background-color: transparent;
+    color: #ed563b;
+    border: 2px solid #ed563b;
+    padding: 10px 28px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-fitness-secondary:hover {
+    background-color: #ed563b;
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+/* ----------------------------------------------------------------------------
+   ALERT/MESSAGE COMPONENT - Custom alerts
+   ---------------------------------------------------------------------------- */
+.alert-fitness {
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.alert-fitness-success {
+    background-color: rgba(40, 167, 69, 0.15);
+    color: #155724;
+    border-left: 4px solid #28a745;
+}
+
+.alert-fitness-error {
+    background-color: rgba(220, 53, 69, 0.15);
+    color: #721c24;
+    border-left: 4px solid #dc3545;
+}
+
+.alert-fitness-info {
+    background-color: rgba(23, 162, 184, 0.15);
+    color: #0c5460;
+    border-left: 4px solid #17a2b8;
+}
+
+.alert-fitness i {
+    font-size: 18px;
+}
+
+/* ----------------------------------------------------------------------------
+   FORM COMPONENTS - Custom styled forms
+   ---------------------------------------------------------------------------- */
+.form-group-custom {
+    margin-bottom: 20px;
+}
+
+.form-label-custom {
+    display: block;
+    color: #ed563b;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-input-custom {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+    background-color: #ffffff;
+}
+
+.form-input-custom:focus {
+    outline: none;
+    border-color: #ed563b;
+    box-shadow: 0 0 0 3px rgba(237, 86, 59, 0.1);
+}
+
+.form-input-custom::placeholder {
+    color: #aaaaaa;
+}
+
+.form-textarea-custom {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    resize: vertical;
+    min-height: 100px;
+    transition: all 0.3s ease;
+}
+
+.form-textarea-custom:focus {
+    outline: none;
+    border-color: #ed563b;
+    box-shadow: 0 0 0 3px rgba(237, 86, 59, 0.1);
+}
+
+/* ----------------------------------------------------------------------------
+   PROGRESS BAR - For tracking fitness goals
+   ---------------------------------------------------------------------------- */
+.progress-bar-custom {
+    width: 100%;
+    height: 10px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.progress-bar-custom .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ed563b 0%, #f9735b 100%);
+    border-radius: 10px;
+    transition: width 0.5s ease;
+}
+
+/* ----------------------------------------------------------------------------
+   INTENSITY INDICATOR - Visual representation of workout intensity
+   ---------------------------------------------------------------------------- */
+.intensity-indicator {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.intensity-indicator .intensity-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    transition: background-color 0.3s ease;
+}
+
+.intensity-indicator .intensity-dot.active {
+    background-color: #ed563b;
+}
+
+.intensity-indicator .intensity-dot.active-high {
+    background-color: #dc3545;
+}
+
+/* ----------------------------------------------------------------------------
+   LOADING SPINNER - Custom loading animation
+   ---------------------------------------------------------------------------- */
+.spinner-fitness {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(237, 86, 59, 0.2);
+    border-top-color: #ed563b;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ----------------------------------------------------------------------------
+   RESPONSIVE DESIGN - Mobile Optimizations
+   ---------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+
+    .workout-card-custom,
+    .recipe-card-custom {
+        margin-bottom: 15px;
+    }
+
+    .workout-card-custom {
+        padding: 20px;
+    }
+
+    .stats-badge-custom {
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+
+    .btn-fitness-primary,
+    .btn-fitness-secondary {
+        padding: 10px 20px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 576px) {
+    .workout-card-custom .workout-meta {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .recipe-card-custom .recipe-image {
+        height: 150px;
+    }
+
+    .alert-fitness {
+        padding: 12px 15px;
+        font-size: 13px;
+    }
+}
+
+/* ============================================================================
+   END OF COMPONENTS.CSS
+   ============================================================================ */
